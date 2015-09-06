@@ -182,7 +182,6 @@ public class NoTNT extends JavaPlugin implements Listener {
 	private boolean checkPerm(CommandSender sender) {
 		if (!(sender.isOp() | sender.hasPermission("nt.commmand"))) {
 			sender.sendMessage("§cYou don't have permission to use this command.");
-			sender.sendMessage("§cこのコマンドを使用する権限がありません。");
 			return false;
 		}
 		return true;
