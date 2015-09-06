@@ -42,11 +42,6 @@ public class NoTNT extends JavaPlugin implements Listener {
 		getDataFolder().mkdir();// @mkdir(getDataFolder());
 		getServer().getPluginManager().registerEvents(this, this);// getServer().getPluginManager().registerEvents(this,
 																	// this);
-		getLogger().info(
-				"Server class name: " + getServer().getClass().getName());
-		getLogger().info(
-				"PluginManager class name: "
-						+ getServer().getPluginManager().getClass().getName());
 		/*
 		 * if(file_exists(getDataFolder()."/config.yml")){
 		 * config=yaml_parse_file(getDataFolder()."/config.yml"); }else{
@@ -131,7 +126,7 @@ public class NoTNT extends JavaPlugin implements Listener {
 		String username = player.getName();
 		if (config.banTNT & event.getBlock().getType() == Material.TNT) {
 			event.setCancelled(true);
-			getLogger().info("[NoTNT] §cTNT has placed by " + username);
+			getLogger().info("§cTNT has placed by " + username);
 			player.sendMessage("§cYou can't place TNTs!");
 		}
 	}
@@ -141,12 +136,11 @@ public class NoTNT extends JavaPlugin implements Listener {
 		Block block = event.getBlock();
 		Player player = event.getPlayer();
 		if (config.deleteTNTs & event.getBlock().getType() == Material.TNT) {
-			getLogger().info(
-					"[NoTNT] §aA TNT was broken. Deleting TNTs around it...");
+			getLogger().info("§aA TNT was broken. Deleting TNTs around it...");
 			player.sendMessage("§aYou broke a TNT. Deleting TNTs around it...");
 			removeTNTrescursive(player.getEyeLocation().getWorld().getName(),
 					block.getX(), block.getY(), block.getZ(), 0);
-			getLogger().info("[NoTNT] §aComplete!");
+			getLogger().info("§aComplete!");
 			player.sendMessage("§aComplete!");
 		}
 	}
@@ -205,7 +199,7 @@ public class NoTNT extends JavaPlugin implements Listener {
 		if (args.length == 0) {
 			if (!checkPerm(sender))
 				return true;
-			sender.sendMessage("§a[NoTNT] Usage: /tnt <on|off|true|false|enable|disable>");
+			sender.sendMessage("§aUsage: /tnt <on|off|true|false|enable|disable>");
 			return false;
 		}
 		switch (args[0]) {
@@ -222,7 +216,7 @@ public class NoTNT extends JavaPlugin implements Listener {
 			sender.sendMessage("§cNoTNT has disabled!");
 			break;
 		default:
-			sender.sendMessage("§a[NoTNT] Usage: /tnt <on|off|true|false|enable|disable>");
+			sender.sendMessage("§aUsage: /tnt <on|off|true|false|enable|disable>");
 			break;
 		}
 		return true;
@@ -232,7 +226,7 @@ public class NoTNT extends JavaPlugin implements Listener {
 		if (args.length == 0) {
 			if (!checkPerm(sender))
 				return true;
-			sender.sendMessage("§a[NoTNT] Usage: /del <on|off|true|false|enable|disable>");
+			sender.sendMessage("§aUsage: /del <on|off|true|false|enable|disable>");
 			return false;
 		}
 		switch (args[0]) {
@@ -249,7 +243,7 @@ public class NoTNT extends JavaPlugin implements Listener {
 			sender.sendMessage("§cNoTNT can't delete TNTs using TNT removing engine!");
 			break;
 		default:
-			sender.sendMessage("§a[NoTNT] Usage: /deltnt <on|off|true|false|enable|disable>");
+			sender.sendMessage("§aUsage: /deltnt <on|off|true|false|enable|disable>");
 			break;
 		}
 		return true;
