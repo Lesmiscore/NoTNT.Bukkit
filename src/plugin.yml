@@ -1,0 +1,25 @@
+name: NoTNT
+main: com.nao20010128nao.NoTNT
+version: 1.0.1
+api: [1.0.0]
+load: STARTUP
+author: nao20010128nao
+description: Bans TNT completely!
+website: https://github.com/nao20010128nao
+permissions:
+ nt.*:
+  children:
+   nt.command:
+    description: ""
+    default: op
+commands:
+ tnt:
+  description: Manages TNT could be place by players.
+  usage: /tnt <on|off|true|false|enable|disable>
+  permission: nt.commmand
+  permission-message: You don't have permission to use this command.
+ deltnt:
+  description: Manages TNT could be deleted by TNT removing engine.
+  usage: /deltnt <on|off|true|false|enable|disable>
+  permission: nt.commmand
+  permission-message: You don't have permission to use this command.
